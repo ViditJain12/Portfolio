@@ -3,7 +3,6 @@ import { useFadeUp } from "@/hooks/useFadeUp";
 import { skillsData } from "@/lib/data";
 import {
   SiPython,
-  SiJava,
   SiC,
   SiPostgresql,
   SiJavascript,
@@ -22,10 +21,10 @@ import {
   SiNumpy,
   SiTensorflow,
   SiDocker,
-  SiAmazonaws,
   SiGit,
-  SiMicrosoftexcel,
 } from "react-icons/si";
+import { FaJava, FaAws } from "react-icons/fa";
+import { PiMicrosoftExcelLogoFill } from "react-icons/pi";
 import type { IconType } from "react-icons";
 
 const catColors = ["#06b6d4", "#a855f7", "#10b981", "#f59e0b", "#3b82f6", "#ec4899"];
@@ -61,7 +60,7 @@ const skillColorMap: Record<string, string> = {
 
 const skillIconMap: Record<string, IconType> = {
   Python: SiPython,
-  Java: SiJava,
+  Java: FaJava,
   "C/C++": SiC,
   SQL: SiPostgresql,
   JavaScript: SiJavascript,
@@ -82,10 +81,10 @@ const skillIconMap: Record<string, IconType> = {
   NumPy: SiNumpy,
   TensorFlow: SiTensorflow,
   Docker: SiDocker,
-  AWS: SiAmazonaws,
+  AWS: FaAws,
   "CI/CD": SiGit,
   Git: SiGit,
-  Excel: SiMicrosoftexcel,
+  Excel: PiMicrosoftExcelLogoFill,
 };
 
 export default function Skills() {
