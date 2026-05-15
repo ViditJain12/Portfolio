@@ -98,10 +98,14 @@ export const projectsData = [
 ];
 
 export const skillsData = [
-  { cat: "Languages",      icon: "⌨", skills: ["Python", "Java", "C/C++", "SQL", "JavaScript", "TypeScript", "R"] },
-  { cat: "Frontend",       icon: "◻", skills: ["React", "React Native", "Next.js", "Expo", "Node.js", "Tailwind CSS"] },
-  { cat: "Backend",        icon: "◈", skills: ["FastAPI", "Flask", "Node.js", "Express", "REST APIs"] },
-  { cat: "AI / ML",        icon: "◉", skills: ["PyTorch", "Pandas", "NumPy", "Transformers", "TensorFlow"] },
-  { cat: "Infrastructure", icon: "◫", skills: ["Docker", "AWS", "CI/CD", "Git"] },
-  { cat: "Tools",          icon: "◧", skills: ["Cursor", "Claude Code", "Excel"] },
+  { cat: "Languages", icon: "⌨", skills: ["Python", "Java", "C/C++", "TypeScript", "JavaScript", "SQL", "R"] },
+  {
+    cat: "Frontend / Backend",
+    icon: "◈",
+    sections: [
+      { label: "Frontend", skills: ["React", "HTML", "CSS"] },
+      { label: "Backend", skills: ["FastAPI", "Node.js", "Flask"] },
+    ],
+  },
+  { cat: "AI / ML", icon: "◉", skills: ["PyTorch", "Pandas", "NumPy", "Transformers", "TensorFlow"] },
 ];

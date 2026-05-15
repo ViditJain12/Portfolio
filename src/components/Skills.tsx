@@ -9,25 +9,20 @@ import {
   SiTypescript,
   SiR,
   SiReact,
-  SiExpo,
-  SiNextdotjs,
   SiNodedotjs,
-  SiTailwindcss,
+  SiHtml5,
+  SiCss,
   SiFastapi,
   SiFlask,
-  SiExpress,
   SiPytorch,
   SiPandas,
   SiNumpy,
   SiTensorflow,
-  SiDocker,
-  SiGit,
 } from "react-icons/si";
-import { FaJava, FaAws } from "react-icons/fa";
-import { PiMicrosoftExcelLogoFill } from "react-icons/pi";
+import { FaJava } from "react-icons/fa";
 import type { IconType } from "react-icons";
 
-const catColors = ["#06b6d4", "#a855f7", "#10b981", "#f59e0b", "#3b82f6", "#ec4899"];
+const catColors = ["#06b6d4", "#a855f7", "#10b981"];
 
 const skillColorMap: Record<string, string> = {
   Python: "#3776ab",
@@ -38,24 +33,16 @@ const skillColorMap: Record<string, string> = {
   TypeScript: "#3178C6",
   R: "#276DC3",
   React: "#61DAFB",
-  "React Native": "#61DAFB",
-  "Next.js": "#000000",
-  Expo: "#000020",
+  HTML: "#E34F26",
+  CSS: "#1572B6",
   "Node.js": "#68A063",
-  "Tailwind CSS": "#06B6D4",
   FastAPI: "#009688",
   Flask: "#000000",
-  Express: "#000000",
-  "REST APIs": "#000000",
   PyTorch: "#EE4C2C",
   Pandas: "#150458",
   NumPy: "#013243",
+  Transformers: "#FFD21E",
   TensorFlow: "#FF6F00",
-  Docker: "#2496ED",
-  AWS: "#FF9900",
-  "CI/CD": "#F1502F",
-  Git: "#F1502F",
-  Excel: "#217346",
 };
 
 const skillIconMap: Record<string, IconType> = {
@@ -67,28 +54,36 @@ const skillIconMap: Record<string, IconType> = {
   TypeScript: SiTypescript,
   R: SiR,
   React: SiReact,
-  "React Native": SiReact,
-  "Next.js": SiNextdotjs,
-  Expo: SiExpo,
+  HTML: SiHtml5,
+  CSS: SiCss,
   "Node.js": SiNodedotjs,
-  "Tailwind CSS": SiTailwindcss,
   FastAPI: SiFastapi,
   Flask: SiFlask,
-  Express: SiExpress,
-  "REST APIs": SiNodedotjs,
   PyTorch: SiPytorch,
   Pandas: SiPandas,
   NumPy: SiNumpy,
   TensorFlow: SiTensorflow,
-  Docker: SiDocker,
-  AWS: FaAws,
-  "CI/CD": SiGit,
-  Git: SiGit,
-  Excel: PiMicrosoftExcelLogoFill,
 };
 
 export default function Skills() {
   const ref = useFadeUp();
+
+  const renderSkill = (skill: string) => {
+    const IconComponent = skillIconMap[skill];
+    const iconColor = skillColorMap[skill];
+
+    return (
+      <span
+        key={skill}
+        className="font-mono text-xs px-3 py-1.5 rounded-md border border-white/[0.08] text-[#8892a4] bg-white/[0.02] transition-all hover:border-cyan-400/35 hover:text-cyan-400 hover:bg-cyan-400/10 cursor-default flex items-center gap-1.5"
+      >
+        {IconComponent ? (
+          <IconComponent className="text-sm" style={{ color: iconColor }} />
+        ) : null}
+        {skill}
+      </span>
+    );
+  };
 
   return (
     <section id="skills" className="py-12 bg-[linear-gradient(180deg,transparent,rgba(12,18,32,0.5),transparent)]">
@@ -98,33 +93,37 @@ export default function Skills() {
           <div className="font-mono text-xs text-cyan-400 tracking-[0.15em] uppercase mb-2">Skills</div>
           <h2 className="font-head text-3xl font-bold text-white mb-8">Tech stack</h2>
 
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {skillsData.map((cat, i) => (
               <div
                 key={i}
                 className="shimmer-card bg-[rgba(12,18,32,0.8)] border border-white/[0.08] rounded-xl p-6 transition-all hover:border-cyan-400/25 hover:shadow-[0_0_24px_rgba(6,182,212,0.05)]"
               >
-                <div className="flex items-center gap-2.5 mb-4">
-                  <span style={{ color: catColors[i], fontSize: 16 }}>{cat.icon}</span>
-                  <span className="font-mono text-xs tracking-widest uppercase" style={{ color: catColors[i] }}>{cat.cat}</span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {cat.skills.map((s, j) => {
-                    const IconComponent = skillIconMap[s];
-                    const iconColor = skillColorMap[s];
-                    return (
-                      <span
-                        key={j}
-                        className="font-mono text-xs px-3 py-1.5 rounded-md border border-white/[0.08] text-[#8892a4] bg-white/[0.02] transition-all hover:border-cyan-400/35 hover:text-cyan-400 hover:bg-cyan-400/10 cursor-default flex items-center gap-1.5"
-                      >
-                        {IconComponent ? (
-                          <IconComponent className="text-sm" style={{ color: iconColor }} />
-                        ) : null}
-                        {s}
-                      </span>
-                    );
-                  })}
-                </div>
+                {cat.sections ? (
+                  <div className="grid gap-4">
+                    {cat.sections.map((section) => (
+                      <div key={section.label} className="border-t border-white/[0.06] pt-4 first:border-t-0 first:pt-0">
+                        <div className="flex items-center gap-2.5 mb-3">
+                          <span style={{ color: catColors[i], fontSize: 16 }}>{cat.icon}</span>
+                          <span className="font-mono text-xs tracking-widest uppercase" style={{ color: catColors[i] }}>{section.label}</span>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {section.skills.map(renderSkill)}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <>
+                    <div className="flex items-center gap-2.5 mb-4">
+                      <span style={{ color: catColors[i], fontSize: 16 }}>{cat.icon}</span>
+                      <span className="font-mono text-xs tracking-widest uppercase" style={{ color: catColors[i] }}>{cat.cat}</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {cat.skills?.map(renderSkill)}
+                    </div>
+                  </>
+                )}
               </div>
             ))}
           </div>
