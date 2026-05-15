@@ -13,12 +13,12 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-[64px]">
+    <section id="about" className="py-12">
       <div className="max-w-[1100px] mx-auto px-8">
         <div className="fade-up" ref={ref}>
           <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 rounded mb-4" />
           <div className="font-mono text-xs text-cyan-400 tracking-[0.15em] uppercase mb-2">About</div>
-          <h2 className="font-head text-3xl font-bold text-white mb-12">Who I am</h2>
+          <h2 className="font-head text-3xl font-bold text-white mb-8">Who I am</h2>
 
           <div className="grid grid-cols-2 gap-8 items-start">
             {/* Bio card */}

@@ -6,19 +6,19 @@ export default function Experience() {
   const ref = useFadeUp();
 
   return (
-    <section id="experience" className="py-[64px] bg-[linear-gradient(180deg,transparent,rgba(12,18,32,0.5),transparent)]">
+    <section id="experience" className="py-12 bg-[linear-gradient(180deg,transparent,rgba(12,18,32,0.5),transparent)]">
       <div className="max-w-[1100px] mx-auto px-8">
         <div className="fade-up" ref={ref}>
           <div className="w-12 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 rounded mb-4" />
           <div className="font-mono text-xs text-cyan-400 tracking-[0.15em] uppercase mb-2">Experience</div>
-          <h2 className="font-head text-3xl font-bold text-white mb-12">Where I&apos;ve worked</h2>
+          <h2 className="font-head text-3xl font-bold text-white mb-8">Where I&apos;ve worked</h2>
 
           <div className="relative flex flex-col">
             {/* Timeline line */}
             <div className="absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-cyan-400/30 to-purple-400/30" />
 
             {experienceData.map((exp, i) => (
-              <div key={i} className="grid grid-cols-[48px_1fr] gap-6 pb-7 border-b border-white/[0.04] last:border-0 group">
+              <div key={i} className="grid grid-cols-[48px_1fr] gap-6 pb-5 border-b border-white/[0.04] last:border-0 group">
                 {/* Dot */}
                 <div className="flex flex-col items-center pt-2">
                   <div

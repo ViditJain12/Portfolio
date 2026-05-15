@@ -21,7 +21,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="min-h-screen flex items-center pt-[60px] overflow-hidden relative">
+    <section id="hero" className="min-h-[calc(100vh-36px)] flex items-center pt-[60px] overflow-hidden relative">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-24 -right-24 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(168,85,247,0.12)_0%,transparent_70%)] animate-glow-pulse" />
