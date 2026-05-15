@@ -35,7 +35,7 @@ export default function Projects() {
                   style={{
                     ["--accent-color" as string]: p.accentColor,
                     ["--glow-color" as string]: p.glowColor,
-                    borderColor: p.inProgress ? "rgba(251,191,36,0.5)" : "rgba(255,255,255,0.08)",
+                    borderColor: "rgba(255,255,255,0.08)",
                   }}
                   onClick={() => window.open(p.href, "_blank", "noopener noreferrer")}
                 >
@@ -51,13 +51,6 @@ export default function Projects() {
                     <div className="absolute top-3 right-3 w-7 h-7 rounded-md bg-black/40 border border-white/10 flex items-center justify-center text-[#8892a4] transition-all z-10 hover:border-cyan-400 hover:text-cyan-400 hover:bg-cyan-400/15">
                       <IconExternal />
                     </div>
-                    {/* In progress badge */}
-                    {p.inProgress && (
-                      <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1.5 bg-black/55 backdrop-blur-sm border border-yellow-400/40 rounded-full px-2.5 py-1 font-mono text-[10px] text-yellow-400 tracking-widest z-10">
-                        <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 shadow-[0_0_6px_#fbbf24] animate-glow-pulse" />
-                        IN PROGRESS
-                      </div>
-                    )}
                   </div>
 
                   {/* Body */}

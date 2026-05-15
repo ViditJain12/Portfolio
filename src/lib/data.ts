@@ -44,7 +44,6 @@ export const projectsData = [
     accentColor: "rgba(251,191,36,0.35)",
     glowColor: "rgba(251,191,36,0.15)",
     href: "https://github.com/ViditJain12/PitIQ",
-    inProgress: true,
   },
   {
     name: "TrueShuffle",
